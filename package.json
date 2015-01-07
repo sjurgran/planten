@@ -1,0 +1,14 @@
+{
+  "name": "planten",
+  "version": "1.0.0",
+  "description": "Plantevanningssytem",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Sjur Sørskår og Asbjørn Rasbjørn",
+  "license": "BSD",
+  "dependencies": {
+    "react": "^0.12.2"
+  }
+}
