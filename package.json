@@ -4,7 +4,11 @@
   "description": "Plantevanningssytem",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+  	"start":"npm run watch & npm run livereload & npm run static",
+    "test": "mocha",
+    "livereload":"livereloadify app",
+    "watch":"watchify app/app.js -o app/bundle.js",
+    "static":"static app/"
   },
   "author": "Sjur Sørskår og Asbjørn Rasbjørn",
   "license": "BSD",
