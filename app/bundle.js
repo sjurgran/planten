@@ -1,6 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/sjur/test/planten/app/app.js":[function(require,module,exports){
 var React = require('react');
 var Header = require('./header.js');
+var Plantlist = require('./plantlist.js');
+
 var $     = React.DOM;
 
 var App = React.createClass({
@@ -8,14 +10,14 @@ var App = React.createClass({
        return $.div({
            id : 'container',
            className : ''
-       }, [Header()]);
+       }, [Header(),Plantlist()]);
    }
 });
 
 
 React.renderComponent(App(),document.body);
 
-},{"./header.js":"/Users/sjur/test/planten/app/header.js","react":"/Users/sjur/test/planten/node_modules/react/react.js"}],"/Users/sjur/test/planten/app/header.js":[function(require,module,exports){
+},{"./header.js":"/Users/sjur/test/planten/app/header.js","./plantlist.js":"/Users/sjur/test/planten/app/plantlist.js","react":"/Users/sjur/test/planten/node_modules/react/react.js"}],"/Users/sjur/test/planten/app/header.js":[function(require,module,exports){
 var React = require('react');
 var $     = React.DOM;
 
@@ -23,7 +25,7 @@ var Header = React.createClass({
    render : function(){
        return $.div({
            id : 'header',
-       }, "Dette er headeren");
+       }, [Logo(), "Plantme", AddBtn()]);
    }
 });
 
@@ -31,11 +33,50 @@ var Logo = React.createClass({
    render : function(){
        return $.img({
            id : 'logo',
-       }, "Dette er headeren");
+           src: 'logo.png',
+           style: {width:"80px"}
+       });
+   }
+});
+
+var AddBtn = React.createClass({
+   render : function(){
+       return $.button({
+           id : 'addBtn',
+           style: {width:"80px"},
+           onClick:this.onClick
+       },"+");
+   },
+   onClick : function(){
+       alert("ye");
    }
 });
 
 module.exports = Header;
+
+
+},{"react":"/Users/sjur/test/planten/node_modules/react/react.js"}],"/Users/sjur/test/planten/app/plantlist.js":[function(require,module,exports){
+var React = require("react");
+var $     = React.DOM;
+
+var Plantlist = React.createClass({
+   render : function(){
+       return $.ul({
+           id : 'plantlist',
+       }, []);
+   }
+});
+
+
+var PlantlistItem = React.createClass({
+   render : function(){
+       return $.li({
+
+       }, [this.props.plant.name]);
+   }
+});
+
+module.exports = Plantlist;
 },{"react":"/Users/sjur/test/planten/node_modules/react/react.js"}],"/Users/sjur/test/planten/node_modules/react/lib/AutoFocusMixin.js":[function(require,module,exports){
 /**
  * Copyright 2013-2014, Facebook, Inc.

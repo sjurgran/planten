@@ -1,5 +1,7 @@
 var React = require('react');
 var Header = require('./header.js');
+var Plantlist = require('./plantlist.js');
+
 var $     = React.DOM;
 
 var App = React.createClass({
@@ -7,7 +9,7 @@ var App = React.createClass({
        return $.div({
            id : 'container',
            className : ''
-       }, [Header()]);
+       }, [Header(),Plantlist()]);
    }
 });
 
